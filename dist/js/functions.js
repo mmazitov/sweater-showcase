@@ -1,0 +1,1 @@
+"use strict";var _require=require("gulp"),on=_require.on;document.addEventListener("DOMContentLoaded",(function(){})),document.querySelector(window).on("scroll",(function(){})),document.querySelector(window).on("load",(function(){})),document.querySelector(window).on("resize",(function(){}));
