@@ -72,12 +72,11 @@ function jsTask() {
 		.src(paths.scripts.src)
 		.pipe(eslint())
 		.pipe(eslint.format())
-		.pipe(
-			babel({
-				presets: ['@babel/env'],
-			})
-		)
-		.pipe(terser())
+		// .pipe(
+		// 	babel({
+		// 		presets: ['@babel/env'],
+		// 	})
+		// )
 		.pipe(gulp.dest(paths.scripts.dist))
 		.pipe(browserSync.stream());
 }

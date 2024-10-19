@@ -1,18 +1,12 @@
-const { on } = require('gulp');
-
 document.addEventListener('DOMContentLoaded', function () {
-	//webApp.functionName();
-	// Do something.
+	initSidebarBtn();
 });
 
-document.querySelector(window).on('scroll', function () {
-	// Do something.
-});
-
-document.querySelector(window).on('load', function () {
-	// Do something.
-});
-
-document.querySelector(window).on('resize', function () {
-	// Do something.
-});
+function initSidebarBtn() {
+	const resizeBtn = document.querySelector('.resize');
+	const content = document.querySelector('.wrapper');
+	resizeBtn.addEventListener('click', function(e) {
+		e.preventDefault();
+		content.classList.toggle('sb-expand');
+	});
+}
