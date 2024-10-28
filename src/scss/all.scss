@@ -1,9 +1,210 @@
-@import './normalize&reset.scss';
+@use './normalize&reset' as *; 
+@use './fonts' as *;
+@use './variables' as *;
+@use './forms' as *;
+@use './animations' as *;
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+body {
+	font-family: $main-font;
+}
+.body-pattern {
+	background: url('../images/pattern.png') repeat-y;
+	background-position: 70%;
+	height: 100vh;
+	position: absolute;
+	width: 50%; 
+	z-index: -1;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1400px;
+	padding: 0 5px;
+}
+
+.hero {
+	align-items: center;
+	column-gap: 131px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: clamp(28px, 5vw, 104px) clamp(33px, 6vw, 109px);
+		// clamp(28px, 5vw, 104px) /* Top */
+		// clamp(33px, 6vw, 109px) /* Right */
+		// clamp(28px, 5vw, 104px) /* Bottom */
+		// clamp(33px, 6vw, 109px); /* Left */
+	
+}
+
+.intro {
+	&-text {
+		align-self: end;
+	}
+	&-title {
+		background: $text-gradient;
+		background-clip: text;
+		font-size: clamp(36px, 1.5vw, 54px);
+		font-weight: 700;
+		line-height: clamp(46px, 1.8vw, 64px);
+		margin-bottom: clamp(20px, 1.5vw, 30px);
+  	-webkit-text-fill-color: transparent;
+	}
+
+	&-slogan {
+		color: $color-3;
+		font-size: clamp(16px, 1.5vw, 20px);
+		font-weight: 400;
+		line-height: clamp(26px, 1.8vw, 30px);
+		margin-bottom: clamp(30px, 1.5vw, 40px);
+	}
+}
+
+.buttons-holder {
+	display: flex;
+	gap: 20px;
+}
 
 
+.product-section {
+	position: relative;
+}
+
+.image-container {
+	height: 412px;
+	width: 332px;
+}
+
+.product-image {
+	border-radius: 8px;
+	box-shadow: $shadow-1 $shadow-color-1;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.product {
+	&-info {
+		background: $white;
+		border-radius: 12px;
+		box-shadow: 
+			$shadow-2 $shadow-color-1,
+			$shadow-3 $shadow-color-2 inset,
+			$shadow-4 $shadow-color-3 inset,
+			$shadow-5 $shadow-color-3 inset,
+			$shadow-6 $shadow-color-4 inset;
+		left: 199px;
+		padding: clamp(16px, 2vw, 20px) clamp(16px, 2vw, 30px);
+		position: absolute;
+		top: 112px;
+		width: 375px;
+	}
+
+	&-title {
+		background: $text-gradient;
+		background-clip: text;
+		font-size: clamp(19px, 1.8vw, 38px);
+		font-weight: 700;
+		line-height: clamp(21px, 2vw, 50px);
+		margin-bottom: clamp(12px, 1.2vw, 20px);
+  	-webkit-text-fill-color: transparent;
+	}
+
+	&-description {
+		color: $color-3;
+		font-size: clamp(12px, 1.5vw, 16px);
+		line-height: clamp(16px, 1.5vw, 26px);
+		margin-bottom: 30px;
+	}
+}
+
+.color-options {
+	align-items: center;
+	gap: 9px 19px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+	.color-name {
+		color: $color-1;
+		font-size: clamp(14px, 1.5vw, 16px);
+		line-height: clamp(17px, 1.5vw, 19px);
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	input {
+		display: none;
+	}
+}
+
+.floating-elements {
+	position: relative;
+}
+
+.floating-square {
+	position: absolute;	
+	z-index: -2;
+	&.big {
+		animation: floatUp 6s linear infinite;
+		background: $color-4;
+		border-radius: 8px;
+		box-shadow: $shadow-1 $shadow-color-1;
+		height: 75px;
+		left: 76px;
+		top: 80px;
+		width: 75px;
+	}
+
+	&.small {
+		animation: floatDown 6s linear infinite;
+		background: $color-5;
+		border-radius: 5px;
+		box-shadow: $shadow-1 $shadow-color-1;
+		height: 45px;
+		left: 21px;
+		top: 149px;
+		width: 45px;
+	}
+}
+
+.floating-icon {
+	position: absolute;
+
+	svg {
+		fill: $color-6;
+	}
+
+	&.big {
+		animation: floatDown 6s linear infinite;
+		left: 99px;
+		top: 185px;
+	}
+
+	&.small {
+		animation: floatUp 6s linear infinite;
+		left: 0;
+		top: 102px;
+	}
+}
+
+
+
+
+
+@media (width <= 768px) {
+  .container {
+    max-width: 100%; /* Adjusts the container to the full width */
+  }
+	.hero {
+		grid-template-columns: 1fr;
+	}
+	.intro-text {
+		order: 2;
+	}
+	.product-section {
+		order: 1;
+	}
+}
