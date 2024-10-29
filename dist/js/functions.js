@@ -28,20 +28,39 @@ function initSlider() {
 function initImageMove() {
 	const productImage = document.querySelector('.product-image');
 	const parentContainer = document.querySelector('.container');
-	parentContainer.addEventListener('mousemove', (event) => {
+	
+	// Function to handle the mousemove event
+	function handleMouseMove(event) {
 		const rect = parentContainer.getBoundingClientRect();
-		const x = event.clientX - rect.left; // Позиция X курсора относительно родителя
-		const y = event.clientY - rect.top;  // Позиция Y курсора относительно родителя
+		const x = event.clientX - rect.left; // X position of the cursor relative to the container
+		const y = event.clientY - rect.top;  // Y position of the cursor relative to the container
 		
-		// Центр родительского контейнера
+		// Center of the container
 		const centerX = rect.width / 2;
 		const centerY = rect.height / 2;
 		
-		// Смещение изображения на основе расстояния от центра
-		const offsetX = (x - centerX) * -0.1; // умножение на -0.1 для эффекта "отталкивания"
+		// Offset the image based on distance from the center
+		const offsetX = (x - centerX) * -0.1;
 		const offsetY = (y - centerY) * -0.1;
 	
-		// Применяем смещение к изображению
+		// Apply the offset to the image
 		productImage.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-	});
+	}
+	
+	// Function to toggle the event listener based on screen width
+	function toggleMouseEffect() {
+		if (window.innerWidth > 768) {
+			// Add the event listener if screen width is greater than 768px
+			parentContainer.addEventListener('mousemove', handleMouseMove);
+		} else {
+			// Remove the event listener if screen width is 768px or less
+			parentContainer.removeEventListener('mousemove', handleMouseMove);
+			// Reset transform when the effect is disabled
+			productImage.style.transform = '';
+		}
+	}
+	
+	// Run the toggle function on initial load and on window resize
+	toggleMouseEffect();
+	window.addEventListener('resize', toggleMouseEffect);
 }

@@ -29,15 +29,10 @@ body {
 
 .hero {
 	align-items: center;
-	column-gap: 131px;
+	column-gap: clamp(20px, 5vw,  131px);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	padding: clamp(28px, 5vw, 104px) clamp(33px, 6vw, 109px);
-		// clamp(28px, 5vw, 104px) /* Top */
-		// clamp(33px, 6vw, 109px) /* Right */
-		// clamp(28px, 5vw, 104px) /* Bottom */
-		// clamp(33px, 6vw, 109px); /* Left */
-	
+	padding: clamp(28px, 5vw, 104px) clamp(38px, 6vw, 109px);	
 }
 
 .intro {
@@ -100,7 +95,8 @@ body {
 		padding: clamp(16px, 2vw, 20px) clamp(16px, 2vw, 30px);
 		position: absolute;
 		top: 112px;
-		width: 375px;
+		max-width: 375px;
+		min-width: 204px;
 	}
 
 	&-title {
@@ -190,21 +186,48 @@ body {
 	}
 }
 
-
-
-
-
 @media (width <= 768px) {
   .container {
     max-width: 100%; /* Adjusts the container to the full width */
   }
+	.body-pattern {
+		width: 100%;
+	}
 	.hero {
 		grid-template-columns: 1fr;
+	}
+	.intro-text,
+	.product-section {
+		justify-self: center;
 	}
 	.intro-text {
 		order: 2;
 	}
 	.product-section {
 		order: 1;
+		margin-bottom: 135px;		
+	}
+	.floating-square,
+	.floating-icon {
+		&.big,
+		&.small {
+			animation: inherit;
+		}
+	}
+	.floating-square {
+		&.big {
+			top: -5px;
+		}
+		&.small {
+			top: 50px;
+		}
+	}
+	.floating-icon {
+		&.big {
+			top: 85px;
+		}
+		&.small {
+			top: 5px;
+		}
 	}
 }
