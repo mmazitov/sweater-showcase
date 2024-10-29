@@ -1,9 +1,3 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Markup Starter" />
-
-  &#xa0;
-</div>
-
 <h1 align="center">Sweater Showcase</h1>
 
 ## 🎯 About 
