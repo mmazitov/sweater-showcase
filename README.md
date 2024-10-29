@@ -4,45 +4,33 @@
   &#xa0;
 </div>
 
-<h1 align="center">Markup Starter</h1>
+<h1 align="center">Sweater Showcase</h1>
 
 ## 🎯 About 
-**Markup Starter** is a project template that uses Gulp for automating development tasks such as compiling Pug and Sass, linting JavaScript, and optimizing images.
+This project provides a responsive webpage designed for Shopify merchants, showcasing products and allowing users to interact with and add items to their cart. The webpage features a product hero section, dynamic elements, and custom floating icons, creating an engaging experience for visitors.
 
 
 
-## ✨ Gulp tasks
-- **pugTask:** Compiles Pug files into HTML.
-- **sassTask:** Compiles SCSS files into CSS and adds prefixes for cross-browser compatibility.
-- **jsTask:** Lints and compiles JavaScript files using Babel.
-- **fontsTask:** Copies fonts to the distribution folder.
-- **imagesTask:** Optimizes images and copies them to the distribution folder.
-- **picTask:** Copies pictures from the src/pic folder to the distribution folder.
-- **watchTask:** Starts the server and watches for file changes.
+## ✨ Features
+- **Responsive Design:** Works across devices with optimized media queries.
+- **Dynamic Product Display:** Showcases product information and allows for color selection.
+- **Interactive Elements:** Buttons and floating elements enhance the user experience.
+- **Built for Shopify:** Includes styling and calls to action suited for Shopify merchants.
 
-## 🚀 Dependencies
-The project uses the following dependencies:
-- **@babel/core:** Babel compiler
-- **@babel/preset-env:** Babel preset for modern JavaScript features
-- **browser-sync:** Local server with automatic reloading
-- **gulp:** Task automation tool
-- **gulp-babel:** Used for compiling JavaScript with Babel
-- **gulp-clean-css:** CSS optimization and minification
-- **gulp-concat:** File concatenation
-- **gulp-eslint**: JavaScript file linting
-- **gulp-imagemin:** Image optimization
-- **gulp-pug:** Compiles Pug files into HTML
-- **gulp-sass:** Compiles Sass into CSS
-- **gulp-terser:** JavaScript minification
-- **sass:** Compiled Sass
+## 🚀 Browser Compatibility and Technologies
+- **PUG:** For the structure of the web page.
+- **SCSS:** For styling the components and ensuring responsiveness.
+- **Javascript:** (via `functions.js`) for any dynamic functionalities.
+- **Modern Browsers:** Fully supported (e.g., Chrome, Firefox, Safari, Edge).
+- **Legacy Support:** Includes specific stylesheets for IE8 and IE9 compatibility.
 
 ## 🏁 Starting
 ```
 # Clone this project
-$ git clone https://github.com/mmazitov/markup-starter
+$ git clone https://github.com/mmazitov/sweater-showcase
 
 # Access
-$ cd markup-starter
+$ cd sweater-showcase
 
 # Install the dependencies using Yarn or npm:
 $ $ yarn install or $ npm install
