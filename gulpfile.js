@@ -134,8 +134,18 @@ function watchTask() {
 	gulp.watch(paths.fonts.src, fontsTask);
 }
 
-// Define the default tasks
-exports.default = gulp.series( // Run tasks in series
-	gulp.parallel(pugTask, sassTask, jsTask, fontsTask, imagesTask, picTask), // Run tasks in parallel
-	watchTask // Start watching for changes
+// Build task - compiles all files without starting server and watchers
+const buildTask = gulp.parallel(
+  pugTask,
+  sassTask,
+  jsTask, 
+  fontsTask,
+  imagesTask,
+  picTask
+);
+
+exports.build = buildTask;
+exports.default = gulp.series(
+  buildTask,
+  watchTask
 );
